@@ -187,12 +187,16 @@ class RequestData():
     self.handler.request.sendall(obj_to_bytes(sendbackdata))
 
   def status(self):
-    code = 0
+    #code = 0
     dir_name = self.data['content'][0]
     data_dir = self.user.root_dir + '/' + dir_name
-    cache_dir = data_dir + '/' + S_CACHE_DIR
-    with open(cache_dir + '/' + 'meta', 'rb') as f:
-      file_meta = pickle.load(f)
+    if not os.path.exists(data_dir):
+      code = 1
+      file_meta = None
+    else:
+      cache_dir = data_dir + '/' + S_CACHE_DIR
+      with open(cache_dir + '/' + 'meta', 'rb') as f:
+        file_meta = pickle.load(f)
     sendbackdata = {'code':code, 'content':file_meta}
     self.handler.request.sendall(obj_to_bytes(sendbackdata))
 
