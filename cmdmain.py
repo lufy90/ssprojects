@@ -36,11 +36,11 @@ class Options():
     print(args)
 
   def execute(self):
-    #try:
+    try:
       self.call_options[self.name](self.args)
-    #except KeyError as e:
-     # print('Unknown option: ',self.name)
-      #self.call_options['help'](self.args)
+    except KeyError as e:
+      print('Unknown option: ',self.name)
+      self.call_options['help'](self.args)
 if __name__ == '__main__':
   main = Main()
   main.execute(Options)
