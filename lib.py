@@ -40,7 +40,7 @@ def ls(p='.'):
     print(e)
 
 def diff(a, b):
-  '''a = {f_name1: md5sum1, f_name2:md5sum2}, b = [(1,1),(2,2),(5,5)]'''
+  '''a = {f_name1: md5sum1, f_name2:md5sum2}, b the same'''
   re = []
   ak = list(a.keys())
   bk = list(b.keys())

@@ -187,7 +187,7 @@ class RequestData():
     self.handler.request.sendall(obj_to_bytes(sendbackdata))
 
   def status(self):
-    #code = 0
+    code = 0
     dir_name = self.data['content'][0]
     data_dir = self.user.root_dir + '/' + dir_name
     if not os.path.exists(data_dir):
